@@ -62,7 +62,7 @@ public class PlayerMovment : MonoBehaviour
         {
             jumpTimer = Time.time + jumpDelay;
         }
-        //animator.SetBool("onGround", onGround);
+        animator.SetBool("onGround", onGround);
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
     void FixedUpdate()
@@ -87,8 +87,8 @@ public class PlayerMovment : MonoBehaviour
         {
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
         }
-       // animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-       // animator.SetFloat("JumpSpeed", rb.velocity.y);
+        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("jumpSpeed", rb.velocity.y);
     }
     void Jump()
     {
