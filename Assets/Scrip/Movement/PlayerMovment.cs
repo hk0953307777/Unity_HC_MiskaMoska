@@ -34,28 +34,14 @@ public class PlayerMovment : MonoBehaviour
     public bool onGround = false;
     public Vector3 colliderOffset;
     [SerializeField] Vector2 AreaShape;
-
-    /*[Header("攻擊射彈")]
-    public ProjectileBehaviour ProjectilePrefab;
-    public Transform FirePoint;
-    public float FireRate = 1.0f;
-    private float NextFire = 0.0f;*/
-
+ 
     void Update()
     {
-       /* if (Input.GetButtonDown("Fire1") && Time.time > NextFire) 
-        {
-            NextFire = Time.time + FireRate;
-            Instantiate(ProjectilePrefab, FirePoint.position, transform.rotation);
-            animator.SetTrigger("Attack_Flame");
-        } */
-
         bool wasOnGround = onGround;
         onGround = Physics2D.BoxCast(transform.position - colliderOffset, new Vector3(AreaShape.x, AreaShape.y,1),0,Vector2.zero,0, groundLayer);
 
         if (!wasOnGround && onGround)
         {
-            StartCoroutine(JumpSqueeze(1.25f, 0.8f, 0.05f));
         }
 
         if (Input.GetButtonDown("Jump"))
@@ -94,8 +80,7 @@ public class PlayerMovment : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-        jumpTimer = 0;
-        StartCoroutine(JumpSqueeze(0.5f, 1.2f, 0.1f));
+        
     }
     void modifyPhysics()
     {
@@ -135,34 +120,13 @@ public class PlayerMovment : MonoBehaviour
         facingRight = !facingRight;
         transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
     }
-    IEnumerator JumpSqueeze(float xSqueeze, float ySqueeze, float seconds)
-    {
-        Vector3 originalSize = Vector3.one;
-        Vector3 newSize = new Vector3(xSqueeze, ySqueeze, originalSize.z);
-        float t = 0f;
-        while (t <= 1.0)
-        {
-            t += Time.deltaTime / seconds;
-            characterHolder.transform.localScale = Vector3.Lerp(originalSize, newSize, t);
-            yield return null;
-        }
-        t = 0f;
-        while (t <= 1.0)
-        {
-            t += Time.deltaTime / seconds;
-            characterHolder.transform.localScale = Vector3.Lerp(newSize, originalSize, t);
-            yield return null;
-        }
 
-    }
     /// <summary>
     /// 繪製可視化偵測線
     /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
-        //Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
         Gizmos.DrawCube(transform.position - colliderOffset, new Vector3(AreaShape.x,AreaShape.y, 1));
     }
 }
