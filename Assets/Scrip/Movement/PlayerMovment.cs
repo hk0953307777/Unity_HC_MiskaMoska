@@ -73,7 +73,7 @@ public class PlayerMovment : MonoBehaviour
         {
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
         }
-        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x)/moveSpeed);
         animator.SetFloat("jumpSpeed", rb.velocity.y);
     }
     void Jump()

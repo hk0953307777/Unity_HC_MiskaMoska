@@ -2239,7 +2239,7 @@ MonoBehaviour:
   fallMultiplier: 3
   onGround: 0
   colliderOffset: {x: -0.01, y: 0.86, z: 0}
-  AreaShape: {x: 0.35, y: 0.05}
+  AreaShape: {x: 0.35, y: 0.1}
 --- !u!212 &1261150596
 SpriteRenderer:
   m_ObjectHideFlags: 0
