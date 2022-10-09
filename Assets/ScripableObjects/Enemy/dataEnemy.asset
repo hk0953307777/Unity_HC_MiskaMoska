@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3389618324c594c890b7177692a7f3, type: 3}
+  m_Name: dataEnemy
+  m_EditorClassIdentifier: 
+  Health: 100
+  Attack: 10
+  movementSpeed: 10
+  attackAreaColor: {r: 0, g: 1, b: 0.2, a: 0.7}
+  attackAreaSize: {x: 1, y: 1, z: 1}
+  attackAreaOffset: {x: 0, y: 0, z: 0}
+  attackRangeColor: {r: 0, g: 1, b: 0, a: 0.5}
+  attackRange: 2
+  checkTargetColor: {r: 1, g: 0.1, b: 0.1, a: 0.3}
+  checkTargetArea: {x: 1, y: 1, z: 1}
+  checkTargetOffset: {x: 0, y: 0, z: 0}
+  whitchIsTarget:
+    serializedVersion: 2
+    m_Bits: 64
+  groundCheckColor: {r: 1, g: 0.5, b: 0.3, a: 0.3}
+  groundCheckArea: {x: 1, y: 1, z: 1}
+  groundCheckOffset: {x: 0, y: 0, z: 0}
+  whichIsGround:
+    serializedVersion: 2
+    m_Bits: 8
